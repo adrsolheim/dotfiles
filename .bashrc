@@ -17,6 +17,9 @@ PS1="[\u@\h \[\e[;;32m\]\$(dirs +0)\[\e[m\]]$ "
 # Custom aliases
 alias ..='cd ..'
 
+# TLDR+
+export PATH="$HOME/bin/.cargo/bin:$PATH"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/adr/.sdkman"
 [[ -s "/home/adr/.sdkman/bin/sdkman-init.sh" ]] && source "/home/adr/.sdkman/bin/sdkman-init.sh"
