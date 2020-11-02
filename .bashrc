@@ -20,3 +20,13 @@ alias ..='cd ..'
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/adr/.sdkman"
 [[ -s "/home/adr/.sdkman/bin/sdkman-init.sh" ]] && source "/home/adr/.sdkman/bin/sdkman-init.sh"
+
+
+# XDG Base Directory
+# User directories
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+# System directories
+export XDG_CONFIG_DIRS=/etc/xdg
+
