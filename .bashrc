@@ -33,3 +33,6 @@ export XDG_DATA_HOME=$HOME/.local/share
 # System directories
 export XDG_CONFIG_DIRS=/etc/xdg
 
+# Default editor Vim
+export EDITOR=/usr/bin/vim
+
