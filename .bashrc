@@ -32,6 +32,8 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 # System directories
 export XDG_CONFIG_DIRS=/etc/xdg
+# Cargo
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
 
 # Default editor Vim
 export EDITOR=/usr/bin/vim
