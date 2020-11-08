@@ -17,12 +17,6 @@ PS1="[\u@\h \[\e[;;32m\]\$(dirs +0)\[\e[m\]]$ "
 # Custom aliases
 alias ..='cd ..'
 
-# TLDR+
-export PATH="$HOME/bin/.cargo/bin:$PATH"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/adr/.sdkman"
-[[ -s "/home/adr/.sdkman/bin/sdkman-init.sh" ]] && source "/home/adr/.sdkman/bin/sdkman-init.sh"
 
 
 # XDG Base Directory
@@ -32,9 +26,20 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 # System directories
 export XDG_CONFIG_DIRS=/etc/xdg
+
 # Cargo
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
+# npm
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+# less
+export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+
+
 
 # Default editor Vim
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/adr/.sdkman"
+[[ -s "/home/adr/.sdkman/bin/sdkman-init.sh" ]] && source "/home/adr/.sdkman/bin/sdkman-init.sh"
