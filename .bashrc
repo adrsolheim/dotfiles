@@ -1,4 +1,10 @@
+# zsh
+source $XDG_CONFIG_HOME/zsh/.zshrc
+
 # .bashrc
+
+# Development variables
+source ~/.other/dev.rc
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -16,6 +22,11 @@ PS1="[\u@\h \[\e[;;32m\]\$(dirs +0)\[\e[m\]]$ "
 
 # Custom aliases
 alias ..='cd ..'
+alias vim='/usr/bin/nvim'
+
+# Custom settings
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 
 
@@ -40,6 +51,9 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 # Default editor Vim
 export EDITOR=/usr/bin/nvim
 
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/adr/.sdkman"
-[[ -s "/home/adr/.sdkman/bin/sdkman-init.sh" ]] && source "/home/adr/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/home/adr/.other/.sdkman"
+[[ -s "/home/adr/.other/.sdkman/bin/sdkman-init.sh" ]] && source "/home/adr/.other/.sdkman/bin/sdkman-init.sh"
+
+
