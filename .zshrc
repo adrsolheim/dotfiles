@@ -18,6 +18,42 @@ ZSH_THEME_RANDOM_CANDIDATES=(
   "dpoggi"
 )
 
+
+function cs () {
+	if [ -z "$1" ]
+	then
+		echo "missing argument: directory"
+		return
+	fi
+
+	toDir=$1
+	ifs=$IFS
+	IFS='/'
+	read -A pathArr <<< "$PWD"
+	i=$(( ${#pathArr[@]} -1 ))
+	pos=-1
+	while [[ i -ge 0 ]]
+	do
+		if [ "${pathArr[$i]}" = "${toDir}" ]; then
+			pos=$i
+			break
+		fi
+		(( i-- ))
+	done
+	if [ $pos -lt 0 ]; then
+		echo "No such file or directory"
+		return
+	fi
+
+	IFS=$ifs
+	length=$pos
+	subPath=${pathArr[@]:0:$length}
+	newPath=${subPath[*]// //}
+
+	cd $newPath
+}
+
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -167,3 +203,18 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+export PATH="$HOME/.poetry/bin:$PATH"
+
+export SDKMAN_DIR="/home/adr/.other/.sdkman"
+[[ -s "/home/adr/.other/.sdkman/bin/sdkman-init.sh" ]] && source "/home/adr/.other/.sdkman/bin/sdkman-init.sh"
+
+
+export DERBY_HOME=/opt/derby_10
+export PATH="$DERBY_HOME/bin:$PATH"
+
+
+# pnpm
+export PNPM_HOME="/home/adr/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
