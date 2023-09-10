@@ -1,8 +1,17 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+##### CUSTOM KEYBINDS #####
+
+# Replicate CTRL+u in bash
+bindkey "^U" backward-kill-line
+
+
 # Path to your oh-my-zsh installation.
 export ZSH="$ZDOTDIR/.oh-my-zsh"
+
+# Attempt at making Okular using system dark theme
+QT_QPA_PLATFORMTHEME=gtk2
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -170,17 +179,30 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 alias hs='headset.sh'
 alias rhs='sudo systemctl restart bluetooth'
 alias vim='nvim'
+alias vi='nvim'
 alias dcu='sudo docker-compose up'
 alias dcd='sudo docker-compose down'
 alias cat='bat'
+alias derby='java org.apache.derby.tools.ij'
 
     
 # Default editor Vim    
 export EDITOR=/usr/bin/nvim    
 
+# ~/bin
+export PATH=$HOME/bin:$PATH
+# cargo
 export PATH=$HOME/.local/bin:$HOME/.local/share/cargo/bin:$PATH
 # npm install -g
 export PATH=$HOME/bin/npm-global/bin:$PATH
+# lastools
+# export PATH=$HOME/bin/LAStools/bin:$PATH
+
+
+# Derby DB
+# export DERBY_INSTALL=/opt/Apache/db-derby-10.15.2.0-bin
+# export DERBY_HOME=$DERBY_INSTALL
+# export CLASSPATH=$DERBY_INSTALL/lib/derby.jar:$DERBY_INSTALL/lib/derbytools.jar:$DERBY_INSTALL/lib/derbyoptionaltools.jar:$DERBY_INSTALL/lib/derbyshared.jar:.
 
 
 
