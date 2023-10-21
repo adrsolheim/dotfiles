@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -9,6 +16,8 @@ bindkey "^U" backward-kill-line
 
 # Path to your oh-my-zsh installation.
 export ZSH="$ZDOTDIR/.oh-my-zsh"
+# Would you like to use another custom folder than $ZSH/custom?
+ZSH_CUSTOM=$ZSH/plugins
 
 # Attempt at making Okular using system dark theme
 QT_QPA_PLATFORMTHEME=gtk2
@@ -17,7 +26,8 @@ QT_QPA_PLATFORMTHEME=gtk2
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="dpoggi"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 
 ZSH_THEME_RANDOM_CANDIDATES=(
   "robbyrussell"
@@ -38,12 +48,11 @@ ZSH_THEME_RANDOM_CANDIDATES=(
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+
 plugins=(
-	git wd
+	git wd zsh-autosuggestions zsh-syntax-highlighting
 )
-
-source $ZSH/oh-my-zsh.sh
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -90,8 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
 
 # User configuration
@@ -166,6 +173,7 @@ export PATH=$HOME/bin/npm-global/bin:$PATH
 export SDKMAN_DIR="$HOME/.other/.sdkman"
 [[ -s "$HOME/.other/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.other/.sdkman/bin/sdkman-init.sh"
 
+source $ZSH/oh-my-zsh.sh
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('~/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -181,3 +189,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
