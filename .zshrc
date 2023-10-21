@@ -27,47 +27,22 @@ ZSH_THEME_RANDOM_CANDIDATES=(
   "dpoggi"
 )
 
-
-function cs () {
-	if [ -z "$1" ]
-	then
-		echo "missing argument: directory"
-		return
-	fi
-
-	toDir=$1
-	ifs=$IFS
-	IFS='/'
-	read -A pathArr <<< "$PWD"
-	i=$(( ${#pathArr[@]} -1 ))
-	pos=-1
-	while [[ i -ge 0 ]]
-	do
-		if [ "${pathArr[$i]}" = "${toDir}" ]; then
-			pos=$i
-			break
-		fi
-		(( i-- ))
-	done
-	if [ $pos -lt 0 ]; then
-		echo "No such file or directory"
-		return
-	fi
-
-	IFS=$ifs
-	length=$pos
-	subPath=${pathArr[@]:0:$length}
-	newPath=${subPath[*]// //}
-
-	cd $newPath
-}
-
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+	git wd
+)
+
+source $ZSH/oh-my-zsh.sh
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -118,16 +93,6 @@ function cs () {
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-	git wd
-)
-
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -182,8 +147,7 @@ alias vim='nvim'
 alias vi='nvim'
 alias dcu='sudo docker-compose up'
 alias dcd='sudo docker-compose down'
-alias cat='bat'
-alias derby='java org.apache.derby.tools.ij'
+#alias cat='bat'
 
     
 # Default editor Vim    
@@ -195,48 +159,25 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$HOME/.local/share/cargo/bin:$PATH
 # npm install -g
 export PATH=$HOME/bin/npm-global/bin:$PATH
-# lastools
-# export PATH=$HOME/bin/LAStools/bin:$PATH
-
-
-# Derby DB
-# export DERBY_INSTALL=/opt/Apache/db-derby-10.15.2.0-bin
-# export DERBY_HOME=$DERBY_INSTALL
-# export CLASSPATH=$DERBY_INSTALL/lib/derby.jar:$DERBY_INSTALL/lib/derbytools.jar:$DERBY_INSTALL/lib/derbyoptionaltools.jar:$DERBY_INSTALL/lib/derbyshared.jar:.
 
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/adr/.other/.sdkman"
-[[ -s "/home/adr/.other/.sdkman/bin/sdkman-init.sh" ]] && source "/home/adr/.other/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.other/.sdkman"
+[[ -s "$HOME/.other/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.other/.sdkman/bin/sdkman-init.sh"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/adr/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('~/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/adr/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/adr/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/adr/anaconda3/bin:$PATH"
+        export PATH="$HOME/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-export PATH="$HOME/.poetry/bin:$PATH"
-
-export SDKMAN_DIR="/home/adr/.other/.sdkman"
-[[ -s "/home/adr/.other/.sdkman/bin/sdkman-init.sh" ]] && source "/home/adr/.other/.sdkman/bin/sdkman-init.sh"
-
-
-export DERBY_HOME=/opt/derby_10
-export PATH="$DERBY_HOME/bin:$PATH"
-
-
-# pnpm
-export PNPM_HOME="/home/adr/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
