@@ -1,3 +1,10 @@
+### vim
+Increase cursor speed on Mac (relog/restart for changes to take effect)
+```
+defaults write -g InitialKeyRepeat -int 6
+defaults write -g KeyRepeat -int 2
+```
+
 ### zsh
 
 Directories referenced in config
