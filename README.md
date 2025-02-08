@@ -16,6 +16,20 @@ Directories referenced in config
 
 Each oh-my-zsh plugin listed in `.zshrc` will be loaded by zsh. Visit each plugin for setup instructions
 
+### nvim
+
+Vim-plugged
+```
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
+Run inside `nvim`
+```
+:PlugInstall
+```
+
+
 
 ### tmux
 
