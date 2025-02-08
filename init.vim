@@ -65,6 +65,7 @@ autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab
 
 
 " === Keybinds ===
+let mapleader = " "
 
 nmap <S-u> O<Esc>0"_D
 nmap <CR> o<Esc>0"_D
@@ -76,4 +77,4 @@ nnoremap <C-u> <C-u>zz
 nnoremap n nzz
 nnoremap N Nzz
 " paste but keep text in register
-
+xnoremap <leader>p "_dP
