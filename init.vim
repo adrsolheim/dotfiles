@@ -68,3 +68,10 @@ autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab
 nmap <S-u> O<Esc>0"_D
 nmap <CR> o<Esc>0"_D
 
+" center screen after jumping
+nmap <C-d> <C-d>zz
+nmap <C-u> <C-u>zz 
+" center screen when searching
+nmap n nzz
+nmap N Nzz
+
