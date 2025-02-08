@@ -1,4 +1,3 @@
-
 "plugins stored in '$XDG_DATA_HOME/nvim/plugged'
 
 call plug#begin()
@@ -12,7 +11,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 " comment functions
 Plug 'preservim/nerdcommenter'
 " complete code snippets
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 " markdown preview in browser
 Plug 'JamshedVesuna/vim-markdown-preview'
 
