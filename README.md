@@ -1,3 +1,12 @@
+# Setup
+
+```
+ln -s ~/dotfiles/.zshrc ~/.config/zsh/.zshrc
+ln -s ~/dotfiles/init.nvim ~/.config/nvim/init.vim
+ln -s ~/dotfiles/treesitter.lua ~/.config/nvim/lua/config/treesitter.lua
+ln -s ~/dotfiles/tmux.conf ~/.config/tmux/tmux.conf
+```
+
 ### vim
 Increase cursor speed on Mac (relog/restart for changes to take effect)
 ```

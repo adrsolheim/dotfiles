@@ -26,6 +26,7 @@ if (has("termguicolors"))
 endif
 
 lua require 'colorizer'.setup()
+lua require('config/treesitter')
 
 let g:UltiSnipsSnippetDirectories=['~/.config/nvim/ultisnips']
 let g:UltiSnipsExpandTrigger="<tab>"
