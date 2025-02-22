@@ -14,6 +14,10 @@ Plug 'preservim/nerdcommenter'
 "Plug 'SirVer/ultisnips'
 " markdown preview in browser
 Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -77,3 +81,8 @@ nnoremap n nzz
 nnoremap N Nzz
 " paste but keep text in register
 xnoremap <leader>p "_dP
+" Fuzzy find (Telescope)
+nnoremap <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <leader>fg <cmd>Telescope git_files<CR>
+nnoremap <leader>fs <cmd>Telescope live_grep<CR>
+nnoremap <leader><Esc> :bd<CR>
