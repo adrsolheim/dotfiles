@@ -156,6 +156,7 @@ alias dcu='sudo docker-compose up'
 alias dcd='sudo docker-compose down'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+alias z="source $HOME/.local/bin/z.sh"
 #alias cat='bat'
 
     
