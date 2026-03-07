@@ -157,6 +157,7 @@ alias dcd='sudo docker-compose down'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias z="source $HOME/.local/bin/z.sh"
+alias scim='sc-im'
 #alias cat='bat'
 
     
@@ -169,6 +170,10 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$HOME/.local/share/cargo/bin:$PATH
 # npm install -g
 export PATH=$HOME/bin/npm-global/bin:$PATH
+# zig
+export PATH=$HOME/bin/zig-0.16:$PATH
+# zls
+export PATH=$HOME/bin/zls:$PATH
 
 
 
