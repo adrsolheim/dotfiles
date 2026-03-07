@@ -1,4 +1,4 @@
-"plugins stored in '$XDG_DATA_HOME/nvim/plugged'
+m "plugins stored in '$XDG_DATA_HOME/nvim/plugged'
 
 call plug#begin()
 
@@ -18,6 +18,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
@@ -36,7 +37,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let vim_markdown_preview_github=1 
 
 syntax on
-set number relativenumber
+set relativenumber
 set encoding=utf-8
 colorscheme gruvbox
 " cursor floats n lines above the bottom line on screen
@@ -87,3 +88,4 @@ nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>fg <cmd>Telescope git_files<CR>
 nnoremap <leader>fs <cmd>Telescope live_grep<CR>
 nnoremap <leader><Esc> :bd<CR>
+
