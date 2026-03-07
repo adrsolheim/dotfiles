@@ -1,4 +1,4 @@
-m "plugins stored in '$XDG_DATA_HOME/nvim/plugged'
+"plugins stored in '$XDG_DATA_HOME/nvim/plugged'
 
 call plug#begin()
 
