@@ -1,6 +1,7 @@
 "plugins stored in '$XDG_DATA_HOME/nvim/plugged'
 
-call plug#begin()
+" $HOME/.local/share/nvim/plugged
+call plug#begin(stdpath('data') . '/plugged')
 
 
 Plug 'morhetz/gruvbox'
@@ -17,7 +18,7 @@ Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main', 'do': ':TSUpdate' }
 Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
@@ -27,7 +28,7 @@ if (has("termguicolors"))
 endif
 
 lua require 'colorizer'.setup()
-lua require('config/treesitter')
+lua require('config.treesitter')
 
 let g:UltiSnipsSnippetDirectories=['~/.config/nvim/ultisnips']
 let g:UltiSnipsExpandTrigger="<tab>"
