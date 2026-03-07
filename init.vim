@@ -3,7 +3,6 @@
 " $HOME/.local/share/nvim/plugged
 call plug#begin(stdpath('data') . '/plugged')
 
-
 Plug 'morhetz/gruvbox'
 " auto insert brackets, parens, quotes in pairs
 Plug 'jiangmiao/auto-pairs'
@@ -20,6 +19,7 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' }
 Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main', 'do': ':TSUpdate' }
 Plug 'neovim/nvim-lspconfig'
+Plug 'saghen/blink.cmp', {'tag': 'v1.*'}
 
 call plug#end()
 
@@ -29,6 +29,24 @@ endif
 
 lua require 'colorizer'.setup()
 lua require('config.treesitter')
+lua vim.lsp.enable('zls')
+lua << EOF
+require('blink.cmp').setup({
+    keymap = { preset = 'default' },
+    appearance = {
+        nerd_font_variant = 'mono'
+    },
+    completion = {
+        documentation = { auto_show = false }
+    },
+    sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
+    },
+    fuzzy = {
+        implementation = "prefer_rust_with_warning"
+    }
+})
+EOF
 
 let g:UltiSnipsSnippetDirectories=['~/.config/nvim/ultisnips']
 let g:UltiSnipsExpandTrigger="<tab>"
