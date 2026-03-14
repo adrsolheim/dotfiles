@@ -48,6 +48,7 @@ git clone https://github.com/tmux-plugins/tpm $XDG_CONFIG_HOME/tmux/plugins/tpm
 
 ### sway
 ```
-sudo dnf install sway waybar
+sudo dnf install sway waybar alacritty blueman pavucontrol
+sudo ln -s ~/docs/dotfiles/alacritty/alacritty.toml ~/.config/sway/alacritty/alacritty.toml
 sudo ln -s ~/docs/dotfiles/sway.conf ~/.config/sway/config
 ```
