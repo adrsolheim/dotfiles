@@ -45,3 +45,9 @@ Run inside `nvim`
 ```
 git clone https://github.com/tmux-plugins/tpm $XDG_CONFIG_HOME/tmux/plugins/tpm
 ```
+
+### sway
+```
+sudo dnf install sway waybar
+sudo ln -s ~/docs/dotfiles/sway.conf ~/.config/sway/config
+```
