@@ -27,6 +27,28 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
+lua << EOF
+vim.lsp.config['zls'] = {
+  cmd = { 'zls' },
+  filetypes = { 'zig', 'zir' },
+  root_markers = { 'zls.json', 'build.zig', '.git' },
+  settings = {
+    zls = {
+      enable_autofix = true,
+      enable_snippets = true,
+      warn_style = true,
+    },
+  },
+}
+vim.diagnostic.config({
+  virtual_text = true,   -- shows errors inline
+  signs = true,          -- gutter signs
+  underline = true,      -- underline errors
+  update_in_insert = false,
+  severity_sort = true,
+})
+EOF
+
 lua require 'colorizer'.setup()
 lua require('config.treesitter')
 lua vim.lsp.enable('zls')
