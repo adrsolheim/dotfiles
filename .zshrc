@@ -170,8 +170,10 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$HOME/.local/share/cargo/bin:$PATH
 # npm install -g
 export PATH=$HOME/bin/npm-global/bin:$PATH
-# zig
-export PATH=$HOME/bin/zig-0.16:$PATH
+# zig fixed
+#export PATH=$HOME/bin/zig-0.16:$PATH
+# zig master
+export PATH=$HOME/bin/zig/build/stage3/bin:$PATH
 # zls
 export PATH=$HOME/bin/zls:$PATH
 
