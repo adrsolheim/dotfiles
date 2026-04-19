@@ -28,10 +28,19 @@ if (has("termguicolors"))
 endif
 
 lua << EOF
+-- can be added to other languages
+local on_attach = function(_, bufnr)
+  local opts = { buffer = bufnr }
+
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+end
+
 vim.lsp.config['zls'] = {
   cmd = { 'zls' },
   filetypes = { 'zig', 'zir' },
   root_markers = { 'zls.json', 'build.zig', '.git' },
+  on_attach = on_attach,
   settings = {
     zls = {
       enable_autofix = true,
@@ -54,7 +63,11 @@ lua require('config.treesitter')
 lua vim.lsp.enable('zls')
 lua << EOF
 require('blink.cmp').setup({
-    keymap = { preset = 'default' },
+    keymap = { 
+        preset = 'default',
+        ["<C-y>"] = false,          -- disable Ctrl+y
+        ["<CR>"] = { "accept" },    -- use Enter to confirm
+    },
     appearance = {
         nerd_font_variant = 'mono'
     },
