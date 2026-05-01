@@ -5,7 +5,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'morhetz/gruvbox'
 " auto insert brackets, parens, quotes in pairs
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 " colorize hexcodes and other stuff
 Plug 'norcalli/nvim-colorizer.lua'
 " comment functions
@@ -67,7 +67,7 @@ require('blink.cmp').setup({
     keymap = { 
         preset = 'default',
         ["<C-y>"] = false,                    -- disable Ctrl+y
-        ["<CR>"] = { "accept", "fallback" },  -- use Enter to confirm
+        ["<CR>"] = { "select_and_accept", "fallback" },  -- use Enter to confirm
     },
     appearance = {
         nerd_font_variant = 'mono'
