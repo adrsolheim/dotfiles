@@ -34,6 +34,7 @@ local on_attach = function(_, bufnr)
 
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  vim.keymap.set("n", "gr", vim.lsp.buf.rename, opts)
 end
 
 vim.lsp.config['zls'] = {
@@ -65,8 +66,8 @@ lua << EOF
 require('blink.cmp').setup({
     keymap = { 
         preset = 'default',
-        ["<C-y>"] = false,          -- disable Ctrl+y
-        ["<CR>"] = { "accept" },    -- use Enter to confirm
+        ["<C-y>"] = false,                    -- disable Ctrl+y
+        ["<CR>"] = { "accept", "fallback" },  -- use Enter to confirm
     },
     appearance = {
         nerd_font_variant = 'mono'
@@ -125,9 +126,6 @@ autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " === Keybinds ===
 let mapleader = " "
-
-nmap <S-u> O<Esc>0"_D
-nmap <CR> o<Esc>0"_D
 
 " center screen after jumping
 nnoremap <C-d> <C-d>zz
