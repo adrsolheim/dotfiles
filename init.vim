@@ -62,6 +62,7 @@ EOF
 lua require 'colorizer'.setup()
 lua require('config.treesitter')
 lua vim.lsp.enable('zls')
+lua require("nvim-autopairs").setup({})
 lua << EOF
 require('blink.cmp').setup({
     keymap = { 

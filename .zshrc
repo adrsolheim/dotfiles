@@ -171,10 +171,11 @@ export PATH=$HOME/.local/bin:$HOME/.local/share/cargo/bin:$PATH
 # npm install -g
 export PATH=$HOME/bin/npm-global/bin:$PATH
 # zig fixed
-#export PATH=$HOME/bin/zig-0.16:$PATH
+export PATH=$HOME/bin/zig-0.16:$PATH
 # zig master
-export PATH=$HOME/bin/zig/build/stage3/bin:$PATH
+#export PATH=$HOME/bin/zig/build/stage3/bin:$PATH
 # zls
+# for fixed zig release do: `git checkout 0.16.0` for zig 0.16
 export PATH=$HOME/bin/zls:$PATH
 
 
