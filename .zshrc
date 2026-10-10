@@ -177,6 +177,7 @@ export PATH=$HOME/bin/zig-0.16:$PATH
 # zls
 # for fixed zig release do: `git checkout 0.16.0` for zig 0.16
 export PATH=$HOME/bin/zls:$PATH
+export PATH=$HOME/bin/liquibase:$PATH
 
 
 
